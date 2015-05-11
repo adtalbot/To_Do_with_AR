@@ -3,7 +3,13 @@
 <p>Here are all your tasks:</p>
 
 <ul>
-  <% @tasks.not_done().each do |task| %>
-  <li><%= task.description %></li>
+  <% @tasks.each do |task| %>
+  <li><%= task.description %> <a href="/tasks/<%= task.id() %>/edit">Update this task's description </a> </li>
   <% end %>
-</ul> 
+</ul>
+
+<form action='/add_task' method='post'>
+  <input id='new_task' name='new_task' type='text'>
+  <label id='new_task' for='new_task'> Enter a new task </label>
+  <button type='submit' class='btn btn-success'> Add task </button>
+</form>
