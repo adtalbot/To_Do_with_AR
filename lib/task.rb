@@ -4,4 +4,6 @@ class Task < ActiveRecord::Base
     where({:done => false})
   end)
 
+  belongs_to(:list)
+
 end
